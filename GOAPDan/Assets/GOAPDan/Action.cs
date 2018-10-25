@@ -6,8 +6,8 @@ public abstract class Action
 {
 
     protected string actionTitle = "Undefined";
-    protected Dictionary<string, bool> preconditions = null;
-    protected Dictionary<string, bool> effects = null;
+    protected Dictionary<string, float> preconditions = null;
+    protected Dictionary<string, float> effects = null;
     protected float maxDistance = 1.0f;
     protected GameObject thisActor = null;
     protected GameObject targetActor = null;
@@ -21,11 +21,11 @@ public abstract class Action
 
     public Action()
     {
-        preconditions = new Dictionary<string, bool>();
-        effects = new Dictionary<string, bool>();
+        preconditions = new Dictionary<string, float>();
+        effects = new Dictionary<string, float>();
     }
 
-    public void addPrecondition(string condition, bool startState)
+    public void addPrecondition(string condition, float startState)
     {
         if(!preconditions.ContainsKey(condition))
         {
@@ -50,7 +50,7 @@ public abstract class Action
         }
     }
 
-    public void addEffect(string effect, bool endState)
+    public void addEffect(string effect, float endState)
     {
         if (!effects.ContainsKey(effect))
         {
