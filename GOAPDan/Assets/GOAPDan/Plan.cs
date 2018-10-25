@@ -2,15 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plan : MonoBehaviour {
+public class Plan {
+    private List<Action> actions = null;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public Plan()
+    {
+        actions = new List<Action>();
+    }
+
+    public Action getCurrentAction()
+    {
+        if (actions.Count > 0)
+            return actions[0];
+        return null;
+    }
+
+    public void addActionToTop(Action a)
+    {
+        actions.Insert(0, a);
+    }
+
+    public void addActionToBottom(Action a)
+    {
+        actions.Insert(actions.Count-1, a);
+    }
 }
