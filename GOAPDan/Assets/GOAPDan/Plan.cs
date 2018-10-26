@@ -26,4 +26,15 @@ public class Plan {
     {
         actions.Insert(actions.Count-1, a);
     }
+
+    public Plan deepCopy()
+    {
+        Plan p = new Plan();
+        for(int i = 0; i < actions.Count; i++)
+        {
+            p.addActionToTop(actions[i]);
+        }
+
+        return p;
+    }
 }

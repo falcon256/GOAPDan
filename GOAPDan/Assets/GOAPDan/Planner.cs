@@ -10,6 +10,11 @@ public class Planner
         if(goal==null||memories==null)
             return null;
 
+
+
+
+
+
         return null;//just to make it compile for now.
     }
 	

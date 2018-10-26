@@ -39,4 +39,14 @@ public class GOAPDan {
                 return;
         }
     }
+
+    private List<Action> getActionsByEffect(string effect)
+    {
+        List<Action> effs = null;
+        if(!actionsByEffect.TryGetValue(effect, out effs))
+        {
+            return new List<Action>();//return an empty list instead of null.
+        }
+        return effs;
+    }
 }
