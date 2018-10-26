@@ -5,12 +5,13 @@ using UnityEngine;
 public class GOAPDan {
 
     public static GOAPDan GOAPDanSingleton = null;
-
-    public List<Action> possibleActions = null;
+    private Dictionary<string, List<Action>> actionsByEffect = null;
+    public Action[] possibleActions = null;
 
     public GOAPDan()
     {
         GOAPDanSingleton = this;
+        actionsByEffect = new Dictionary<string, List<Action>>();
     }
 
     public static GOAPDan getSingleton()
@@ -20,4 +21,22 @@ public class GOAPDan {
         return GOAPDanSingleton;
     }
     
+    private void addActionToActionsByEffect(Action a)
+    {
+        Dictionary<string, float> effs = a.getEffects();
+        Dictionary<string, float>.KeyCollection.Enumerator stepper = effs.Keys.GetEnumerator();
+
+        while(stepper.Current!=null)
+        {
+            List<Action> actions = null;
+            if (!actionsByEffect.TryGetValue(stepper.Current, out actions))
+            {
+                actions = new List<Action>();
+                actionsByEffect.Add(stepper.Current, actions);
+            }
+            actions.Add(a);
+            if (!stepper.MoveNext())
+                return;
+        }
+    }
 }

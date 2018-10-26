@@ -74,4 +74,9 @@ public abstract class Action
             Debug.Log(effect + " Not Contained in Action " + actionTitle + " Effect List");
         }
     }
+
+    public Dictionary<string, float> getEffects()
+    {
+        return effects;
+    }
 }
