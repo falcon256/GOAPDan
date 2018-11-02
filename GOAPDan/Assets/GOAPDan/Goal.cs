@@ -15,4 +15,9 @@ public class Goal {
         goalPriority = prior;
     }
 
+    public string getConditionToModify()
+    {
+        return conditionToModify;
+    }
+
 }

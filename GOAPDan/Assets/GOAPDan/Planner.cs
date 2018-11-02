@@ -9,8 +9,12 @@ public class Planner
     {
         if(goal==null||memories==null)
             return null;
+        List<Action> possibleEndActions = GOAPDan.getSingleton().getActionsByEffect(goal.getConditionToModify());
+        List<Plan> plansPerEndActions = new List<Plan>();
+        for (int i = 0; i < possibleEndActions.Count; i++)
+        {
 
-
+        }
 
 
 

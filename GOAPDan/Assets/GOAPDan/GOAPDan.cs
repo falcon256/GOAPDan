@@ -40,7 +40,7 @@ public class GOAPDan {
         }
     }
 
-    private List<Action> getActionsByEffect(string effect)
+    public List<Action> getActionsByEffect(string effect)
     {
         List<Action> effs = null;
         if(!actionsByEffect.TryGetValue(effect, out effs))
