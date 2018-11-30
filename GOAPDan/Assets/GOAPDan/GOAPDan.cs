@@ -49,4 +49,13 @@ public class GOAPDan {
         }
         return effs;
     }
+
+    public static int fastHash(string s)
+    {
+        int hash = int.MinValue;
+        for (int i = 0; i < s.Length; i++)
+            hash += s[i] * i;
+        return hash;
+    }
+
 }
